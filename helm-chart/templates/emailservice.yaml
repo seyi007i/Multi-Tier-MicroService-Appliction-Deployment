@@ -5,12 +5,12 @@ kind: ServiceAccount
 metadata:
   name: {{ .Values.emailService.name }}
   namespace: {{.Release.Namespace}}
-{{- if not .Values.serviceAccounts.annotationsOnlyForCartservice }}
+  {{- if not .Values.serviceAccounts.annotationsOnlyForCartservice }}
   {{- with .Values.serviceAccounts.annotations }}
   annotations:
-{{ toYaml . | nindent 4 }}
+    {{- toYaml . | nindent 4 }}
   {{- end }}
-{{- end }}
+  {{- end }}
 ---
 {{- end }}
 apiVersion: apps/v1
@@ -92,7 +92,7 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:8080"]
           {{- end }}
         resources:
-{{ toYaml .Values.emailService.resources | nindent 10 }}
+          {{- toYaml .Values.emailService.resources | nindent 10 }}
 ---
 apiVersion: v1
 kind: Service
@@ -125,7 +125,7 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          app: {{ .Values.emailService.name }}
+          app: {{ .Values.checkoutService.name }}
     ports:
      - port: 8080
        protocol: TCP
@@ -166,7 +166,7 @@ spec:
     - source:
         principals:
         {{- if .Values.serviceAccounts.create }}
-        - cluster.local/ns/{{ .Release.Namespace }}/sa/{{ .Values.emailService.name }}
+        - cluster.local/ns/{{ .Release.Namespace }}/sa/{{ .Values.checkoutService.name }}
         {{- else }}
         - cluster.local/ns/{{ .Release.Namespace }}/sa/default
         {{- end }}
