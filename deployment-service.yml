@@ -28,7 +28,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: samsorrahman/emailservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:emailservice
         ports:
         - containerPort: 8080
         env:
@@ -81,7 +81,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: samsorrahman/checkoutservice:latest
+          image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:checkoutservice
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -143,7 +143,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: samsorrahman/recommendationservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:recommendationservice
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -200,7 +200,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: samsorrahman/frontend:latest
+          image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:frontend
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -297,7 +297,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: samsorrahman/paymentservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:paymentservice
         ports:
         - containerPort: 50051
         env:
@@ -349,7 +349,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: samsorrahman/productcatalogservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:productcatalogservice
         ports:
         - containerPort: 3550
         env:
@@ -401,7 +401,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: samsorrahman/cartservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:cartservice
         ports:
         - containerPort: 7070
         env:
@@ -465,7 +465,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: samsorrahman/loadgenerator:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:loadgenerator
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -496,7 +496,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: samsorrahman/currencyservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:currencyservice
         ports:
         - name: grpc
           containerPort: 7000
@@ -548,7 +548,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: server
-        image: samsorrahman/shippingservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:shippingservice
         ports:
         - containerPort: 50051
         env:
@@ -654,7 +654,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: samsorrahman/adservice:latest
+        image: 938106001005.dkr.ecr.eu-north-1.amazonaws.com/application:adservice
         ports:
         - containerPort: 9555
         env:
